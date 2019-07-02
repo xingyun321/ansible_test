@@ -1,0 +1,6 @@
+---
+- hosts: tag_Env_{{ app_env }}:&tag_Cluster_{{ app_cluster }}:&tag_Role_{{ app_name }}
+  serial: "100%"
+  tasks:
+    - name: Get Ip address
+      shell: ifconfig | grep "inet addr"
