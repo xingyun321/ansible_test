@@ -21,4 +21,4 @@
   gather_facts: no
   tasks:
     - name: Get Ip address
-      shell: echo {{ host_ips }}
+      shell: echo {{ hostvars['localhost']['host_ips'] }}
