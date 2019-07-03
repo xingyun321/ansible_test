@@ -10,8 +10,8 @@
       register: service_host_ips
 
     - name: set hostname to viarables
-      - set_fact:
-          host_ips: "{{ service_host_ips.stdout }}"
+      set_fact:
+        host_ips: "{{ service_host_ips.stdout }}"
 
 - hosts: tag_Env_{{ app_env }}:&tag_Cluster_{{ app_cluster }}:&tag_Role_{{ qa_box }}
   serial: "100%"
