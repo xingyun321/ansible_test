@@ -14,4 +14,4 @@
   gather_facts: no
   tasks:
     - name: Get Ip address
-      shell: echo service_host_ips.stdout
+      shell: echo {{ service_host_ips.stdout }}
