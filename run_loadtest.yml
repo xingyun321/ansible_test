@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: get testing service host ips
-      shell: python {{ WORKSPACE }}/loadtest/inventory/ec2.py
+      shell: python {{ lookup('env', 'WORKSPACE') }}/loadtest/inventory/ec2.py
 #
 #- hosts: tag_Env_{{ app_env }}:&tag_Cluster_{{ app_cluster }}:&tag_Role_{{ app_name }}
 #  serial: "100%"
