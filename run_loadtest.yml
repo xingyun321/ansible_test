@@ -14,11 +14,11 @@
         host_ips: "{{ service_host_ips.stdout }}"
 
     - name: show me the host_ips in localhost
-      shell:echo "{{ host_ips }}"
+      shell: echo {{ host_ips }}
 
 - hosts: tag_Env_{{ app_env }}:&tag_Cluster_{{ app_cluster }}:&tag_Role_{{ qa_box }}
   serial: "100%"
   gather_facts: no
   tasks:
     - name: Get Ip address
-      shell: echo "{{ host_ips }}"
+      shell: echo {{ host_ips }}
