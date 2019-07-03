@@ -166,7 +166,12 @@ class Ec2Inventory(object):
             else:
                 data_to_print = self.json_format_dict(self.inventory, True)
 
-        print data_to_print
+        print self.parse_ip_address(data_to_print)
+
+    @staticmethod
+    def parse_ip_address(date_to_print):
+        host_vars = json.loads(date_to_print).get('_meta', {}).get('hostvars', {})
+        return [host_var['ec2_private_ip_address'] for host_var in host_vars.values()]
 
 
     def is_cache_valid(self):
